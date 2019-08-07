@@ -1,1 +1,17 @@
-<p>signup works!</p>
+<section class="sign-up-form">
+
+
+  <form fxLayout="column" fxLayoutAlign="center, center"  [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input type="email" matInput placeholder="Your Email*" formControlName="email">
+      <mat-error *ngIf="signUpForm.controls.email.hasError('required')">Required filed.</mat-error>
+      <mat-error *ngIf="!signUpForm.controls.email.hasError('required')">Please enter correct email address.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Your Password*" formControlName="password">
+      <mat-error *ngIf="signUpForm.controls.password.hasError('required')">Required filed.</mat-error>
+      <mat-hint *ngIf="!signUpForm.controls.password.hasError('required')">Should be 5 characters long.</mat-hint>
+    </mat-form-field>
+    <button class="submit-button" type="submit" mat-raised-button color="primary" [disabled]="signUpForm.invalid">Submit</button>
+  </form>
+</section>
