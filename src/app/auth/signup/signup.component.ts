@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm, Validators} from '@angular/forms';
+import {Validators} from '@angular/forms';
 import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
@@ -9,15 +9,23 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  public signUpForm = new FormGroup({
-    email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', [Validators.required, Validators.min(5)]),
-  });
+  public maxDate: Date;
+  public signUpForm: FormGroup;
+
 
   constructor() {
   }
 
   ngOnInit() {
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+
+    this.signUpForm = new FormGroup({
+      email: new FormControl('', [Validators.email, Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.min(5)]),
+      birthDate: new FormControl('', [Validators.required]),
+      terms: new FormControl('', [Validators.required]),
+    });
   }
 
   public onSubmit() {
