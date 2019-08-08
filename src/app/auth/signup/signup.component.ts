@@ -12,7 +12,6 @@ export class SignupComponent implements OnInit {
   public maxDate: Date;
   public signUpForm: FormGroup;
 
-
   constructor() {
   }
 
@@ -20,16 +19,20 @@ export class SignupComponent implements OnInit {
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
 
+    this.formInit();
+  }
+
+  public onSubmit() {
+    console.log(this.signUpForm.value);
+  }
+
+  private formInit () {
     this.signUpForm = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.required, Validators.min(5)]),
       birthDate: new FormControl('', [Validators.required]),
       terms: new FormControl('', [Validators.required]),
     });
-  }
-
-  public onSubmit() {
-    console.log(this.signUpForm.value);
   }
 
 }

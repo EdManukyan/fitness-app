@@ -16,6 +16,7 @@ import {PastTrainingsComponent} from './trainings/past-trainings/past-trainings.
 import {WelcomeComponent} from './welcome/welcome.component';
 import {HeaderComponent} from './navigation/header/header.component';
 import {SideNavListComponent} from './navigation/side-nav-list/side-nav-list.component';
+import {StopTrainingComponent} from './trainings/current-training/stop-training.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {SideNavListComponent} from './navigation/side-nav-list/side-nav-list.com
     PastTrainingsComponent,
     WelcomeComponent,
     HeaderComponent,
-    SideNavListComponent
+    SideNavListComponent,
+    StopTrainingComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import {SideNavListComponent} from './navigation/side-nav-list/side-nav-list.com
     FlexLayoutModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [StopTrainingComponent]
 })
 export class AppModule {
 }
